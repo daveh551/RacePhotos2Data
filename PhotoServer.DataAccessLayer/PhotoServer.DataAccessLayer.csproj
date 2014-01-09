@@ -11,6 +11,8 @@
     <AssemblyName>PhotoServer.DataAccessLayer</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -32,24 +34,24 @@
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\PhotoServer2\packages\EntityFramework.6.0.1\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>..\..\packages\EntityFramework.6.0.1\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\PhotoServer2\packages\EntityFramework.6.0.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <HintPath>..\..\packages\EntityFramework.6.0.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Highway.Data">
-      <HintPath>..\packages\Highway.Data.4.1.0.2\lib\net40\Highway.Data.dll</HintPath>
+      <HintPath>..\..\packages\Highway.Data.4.1.0.2\lib\net40\Highway.Data.dll</HintPath>
     </Reference>
     <Reference Include="Highway.Data.EntityFramework, Version=4.1.0.2, Culture=neutral, PublicKeyToken=fe803c9600455796, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\PhotoServer2\packages\Highway.Data.EntityFramework.4.1.0.2\lib\net40\Highway.Data.EntityFramework.dll</HintPath>
+      <HintPath>..\..\packages\Highway.Data.EntityFramework.4.1.0.2\lib\net40\Highway.Data.EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="Highway.Pavement">
-      <HintPath>..\packages\Highway.Pavement.0.3.0.0\lib\net40\Highway.Pavement.dll</HintPath>
+      <HintPath>..\..\packages\Highway.Pavement.0.3.0.0\lib\net40\Highway.Pavement.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Practices.ServiceLocation">
-      <HintPath>..\packages\CommonServiceLocator.1.0\lib\NET35\Microsoft.Practices.ServiceLocation.dll</HintPath>
+      <HintPath>..\..\packages\CommonServiceLocator.1.0\lib\NET35\Microsoft.Practices.ServiceLocation.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -72,7 +74,7 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <ProjectReference Include="..\RacePhotosData\PhotoServer.Domain\PhotoServer.Domain.csproj">
+    <ProjectReference Include="..\PhotoServer.Domain\PhotoServer.Domain.csproj">
       <Project>{f8be44f9-5540-4d9d-84f8-a2614cd30987}</Project>
       <Name>PhotoServer.Domain</Name>
     </ProjectReference>
@@ -82,6 +84,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
